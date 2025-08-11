@@ -15,6 +15,14 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Ride Booking API is running!',
+    status: 'success',
+    time: new Date().toISOString()
+  });
+});
+
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
